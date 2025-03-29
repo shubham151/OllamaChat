@@ -6,6 +6,9 @@ export default function initChatUI() {
 
   sendBtn.addEventListener("click", () => {
     const userMessage = chatInput.value.trim();
+    botBuffer = "";
+    botBubble = null;
+    typingBubble = null;
     if (!userMessage) return;
 
     const selectedModel = modelDisplay.textContent.trim();
