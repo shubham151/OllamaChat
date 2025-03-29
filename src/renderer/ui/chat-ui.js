@@ -47,15 +47,21 @@ export default function initChatUI() {
   let typingBubble = null;
 
   window.electronAPI.onChatStream((chunk) => {
-    if (!typingBubble) {
-      typingBubble = createMessage("Thinking...", "bot");
-      typingBubble.classList.add("typing-indicator");
-      chatLog.appendChild(typingBubble);
-    }
     console.log("[stream chunk]", JSON.stringify(chunk));
     botBuffer += chunk;
 
     const cleaned = botBuffer.replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
+
+    if (!typingBubble) {
+      typingBubble = document.createElement("div");
+      typingBubble.classList.add(
+        "chat-message",
+        "bot-message",
+        "typing-indicator"
+      );
+      typingBubble.innerHTML = `<div class="spinner"></div> Bot is typing...`;
+      chatLog.appendChild(typingBubble);
+    }
 
     if (cleaned) {
       if (typingBubble) {

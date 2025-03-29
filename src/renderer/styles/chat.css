@@ -130,25 +130,25 @@
     min-height: 0;
 }
 
-.typing-indicator::after {
-    content: '';
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    background-color: #bbb;
-    border-radius: 50%;
-    margin-left: 5px;
-    animation: blink 1s infinite ease-in-out;
+.typing-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #999;
 }
 
-@keyframes blink {
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-top: 2px solid #555;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
 
-    0%,
-    100% {
-        opacity: 0.2;
-    }
-
-    50% {
-        opacity: 1;
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
     }
 }
