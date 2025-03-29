@@ -1,24 +1,73 @@
-#chat-log {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
-    background: #ffffff;
+#chat-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    height: 100vh;
 }
+
+#chat-log {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px 20px 20px 20px;
+    gap: 12px;
+}
+
+
+#chat-log {
+    background-color: rgba(0, 0, 255, 0.1);
+}
+
+#chat-input-container {
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
 
 .dark-mode #chat-log {
     background: #2e2e2e;
 }
 
+#chat-input-container {
+    display: flex;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-top: 1px solid #ddd;
+}
+
+.dark-mode #chat-input-container {
+    background-color: #2a2a2a;
+}
+
+#chat-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+#send-btn {
+    margin-left: 10px;
+    padding: 10px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
 .chat-message {
     max-width: 80%;
-    padding: 12px 16px;
-    border-radius: 15px;
+    padding: 8px 12px;
+    margin: 0;
+    border-radius: 12px;
     white-space: pre-wrap;
-    line-height: 1.5;
+    line-height: 1.4;
+    font-size: 15px;
 }
+
 
 .user-message {
     align-self: flex-end;
@@ -37,4 +86,46 @@
 .dark-mode .bot-message {
     background-color: #444654;
     color: white;
+}
+
+.chat-message code {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.chat-message pre {
+    background: #1e1e1e;
+    color: #eee;
+    padding: 10px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.dark-mode .chat-message pre {
+    background: #2d2d2d;
+}
+
+.chat-message p {
+    margin: 0;
+}
+
+.chat-message ul,
+.chat-message ol {
+    margin: 4px 0 4px 20px;
+    padding: 0;
+}
+
+.chat-message pre {
+    margin: 6px 0;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.chat-message.empty {
+    padding: 0;
+    min-height: 0;
 }

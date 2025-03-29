@@ -22,5 +22,8 @@
     "directories": {
       "buildResources": "assets"
     }
+  },
+  "dependencies": {
+    "marked": "^15.0.7"
   }
 }

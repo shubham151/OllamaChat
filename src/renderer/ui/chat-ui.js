@@ -2,13 +2,13 @@ export default function initChatUI() {
   const chatInput = document.getElementById("chat-input");
   const sendBtn = document.getElementById("send-btn");
   const chatLog = document.getElementById("chat-log");
-  const modelSelect = document.getElementById("model-select");
+  const modelDisplay = document.getElementById("selected-model");
 
   sendBtn.addEventListener("click", () => {
     const userMessage = chatInput.value.trim();
     if (!userMessage) return;
 
-    const selectedModel = modelSelect.value;
+    const selectedModel = modelDisplay.textContent.trim();
     const ollamaHost =
       localStorage.getItem("ollamaHost") || "http://localhost:11434";
 
@@ -22,15 +22,44 @@ export default function initChatUI() {
     });
   });
 
-  window.electronAPI.onChatStream((data) => {
-    appendMessage(data, "bot");
-  });
-
   function appendMessage(message, type = "bot") {
-    const messageElem = document.createElement("div");
-    messageElem.classList.add("chat-message", `${type}-message`);
-    messageElem.textContent = message;
+    const messageElem = createMessage(message, type);
     chatLog.appendChild(messageElem);
-    chatLog.scrollTop = chatLog.scrollHeight;
+    messageElem.scrollIntoView({ behavior: "smooth", block: "end" });
   }
+
+  function createMessage(text, type) {
+    const div = document.createElement("div");
+    div.classList.add("chat-message", `${type}-message`);
+
+    if (type === "bot") {
+      div.dataset.raw = text;
+      div.innerHTML = window.marked.parse(text);
+    } else {
+      div.textContent = text;
+    }
+
+    return div;
+  }
+
+  let botBuffer = "";
+  let botBubble = null;
+
+  window.electronAPI.onChatStream((chunk) => {
+    console.log("[stream chunk]", JSON.stringify(chunk));
+    botBuffer += chunk;
+
+    if (!botBubble) {
+      botBubble = createMessage("", "bot");
+      chatLog.appendChild(botBubble);
+    }
+
+    const cleaned = botBuffer.replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
+
+    if (cleaned) {
+      botBubble.innerHTML = window.marked.parse(cleaned);
+      botBubble.dataset.raw = cleaned;
+      botBubble.scrollIntoView({ behavior: "smooth", block: "end" });
+    }
+  });
 }
