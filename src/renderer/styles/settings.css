@@ -1,0 +1,46 @@
+#settings-panel {
+    padding: 20px;
+    border-top: 1px solid #ccc;
+    background: #fefefe;
+}
+
+.dark-mode #settings-panel {
+    background: #2e2e2e;
+    color: white;
+}
+
+#settings-panel h2 {
+    margin-bottom: 20px;
+}
+
+.setting {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.setting label {
+    width: 120px;
+}
+
+#ollama-host {
+    flex: 1;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+#save-btn {
+    padding: 10px 20px;
+    background-color: #19c37d;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#save-btn:hover {
+    background-color: #0fa36b;
+}

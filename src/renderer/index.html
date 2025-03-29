@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ollama Chat</title>
+
+    <!-- Modular styles -->
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/chat.css" />
+    <link rel="stylesheet" href="styles/input.css" />
+    <link rel="stylesheet" href="styles/settings.css" />
+  </head>
+  <body>
+    <div id="chat-container">
+      <header>
+        <div id="header-left">
+          <label for="model-select">Model:</label>
+          <select id="model-select"></select>
+          <span id="model-display">
+            (<strong id="selected-model">Loading...</strong>)
+          </span>
+        </div>
+
+        <div id="header-right">
+          <button id="settings-btn" title="Settings">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19.14 12.936a7.962 7.962 0 0 0 0-1.872l2.037-1.58a.5.5 0 0 0 .121-.638l-1.928-3.34a.5.5 0 0 0-.607-.21l-2.397.96a7.978 7.978 0 0 0-1.623-.94l-.36-2.53a.5.5 0 0 0-.493-.427h-3.856a.5.5 0 0 0-.493.427l-.36 2.53a7.978 7.978 0 0 0-1.623.94l-2.397-.96a.5.5 0 0 0-.607.21L2.702 8.846a.5.5 0 0 0 .121.638l2.037 1.58a7.962 7.962 0 0 0 0 1.872l-2.037 1.58a.5.5 0 0 0-.121.638l1.928 3.34a.5.5 0 0 0 .607.21l2.397-.96a7.978 7.978 0 0 0 1.623.94l.36 2.53a.5.5 0 0 0 .493.427h3.856a.5.5 0 0 0 .493-.427l.36-2.53a7.978 7.978 0 0 0 1.623-.94l2.397.96a.5.5 0 0 0 .607-.21l1.928-3.34a.5.5 0 0 0-.121-.638l-2.037-1.58zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <div id="chat-log"></div>
+
+      <div id="chat-input-container">
+        <input type="text" id="chat-input" placeholder="Type your message..." />
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+
+    <!-- Inline Settings Panel -->
+    <div id="settings-panel" class="hidden">
+      <h2>⚙️ Settings</h2>
+      <div class="setting">
+        <label for="dark-mode-toggle">Dark Mode:</label>
+        <input type="checkbox" id="dark-mode-toggle" />
+      </div>
+      <div class="setting">
+        <label for="ollama-host">Ollama Host:</label>
+        <input
+          type="text"
+          id="ollama-host"
+          placeholder="http://localhost:11434"
+        />
+      </div>
+      <button id="save-btn">Save</button>
+    </div>
+
+    <!-- JS scripts in order (no module imports) -->
+    <script type="module" src="renderer.js"></script>
+  </body>
+</html>

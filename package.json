@@ -1,0 +1,26 @@
+{
+  "name": "ollamachat",
+  "version": "1.0.0",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder"
+  },
+  "keywords": [],
+  "author": "Your Name",
+  "license": "ISC",
+  "description": "A chat application using Electron and Ollama",
+  "devDependencies": {
+    "electron": "^35.1.2"
+  },
+  "build": {
+    "appId": "com.yourdomain.ollamachat",
+    "productName": "OllamaChat",
+    "files": [
+      "src/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  }
+}
