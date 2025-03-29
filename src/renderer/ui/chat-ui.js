@@ -44,19 +44,30 @@ export default function initChatUI() {
 
   let botBuffer = "";
   let botBubble = null;
+  let typingBubble = null;
 
   window.electronAPI.onChatStream((chunk) => {
+    if (!typingBubble) {
+      typingBubble = createMessage("Thinking...", "bot");
+      typingBubble.classList.add("typing-indicator");
+      chatLog.appendChild(typingBubble);
+    }
     console.log("[stream chunk]", JSON.stringify(chunk));
     botBuffer += chunk;
-
-    if (!botBubble) {
-      botBubble = createMessage("", "bot");
-      chatLog.appendChild(botBubble);
-    }
 
     const cleaned = botBuffer.replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
 
     if (cleaned) {
+      if (typingBubble) {
+        chatLog.removeChild(typingBubble);
+        typingBubble = null;
+      }
+
+      if (!botBubble) {
+        botBubble = createMessage("", "bot");
+        chatLog.appendChild(botBubble);
+      }
+
       botBubble.innerHTML = window.marked.parse(cleaned);
       botBubble.dataset.raw = cleaned;
       botBubble.scrollIntoView({ behavior: "smooth", block: "end" });
