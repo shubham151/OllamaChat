@@ -47,6 +47,8 @@ ollama run llama2
 
 ---
 
+![Demo](assets/ollama-chat.gif)
+
 ## Want to Contribute?
 
 Contributions, ideas, issues, and PRs are all welcome!
