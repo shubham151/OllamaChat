@@ -14,14 +14,12 @@
   <body>
     <div id="chat-container">
       <header>
-        <div id="header-left">
-          <label for="model-select">Model:</label>
-          <select id="model-select"></select>
-          <span id="model-display">
-            (<strong id="selected-model">Loading...</strong>)
-          </span>
+        <div id="model-dropdown" class="dropdown">
+          <button id="model-display-btn" class="dropdown-toggle">
+            <span id="selected-model">Loading...</span> ▼
+          </button>
+          <ul id="model-options" class="dropdown-menu hidden"></ul>
         </div>
-
         <div id="header-right">
           <button id="settings-btn" title="Settings">
             <svg
@@ -47,7 +45,6 @@
       </div>
     </div>
 
-    <!-- Inline Settings Panel -->
     <div id="settings-panel" class="hidden">
       <h2>⚙️ Settings</h2>
       <div class="setting">
@@ -65,7 +62,6 @@
       <button id="save-btn">Save</button>
     </div>
 
-    <!-- JS scripts in order (no module imports) -->
     <script type="module" src="renderer.js"></script>
   </body>
 </html>
