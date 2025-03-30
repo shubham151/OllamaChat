@@ -23,8 +23,8 @@ A local desktop chatbot built with **Electron** that connects to **Ollama** (you
 ### 1. Clone this repo
 
 ```bash
-git clone https://github.com/your-username/ollama-chat.git
-cd ollama-chat
+git clone https://github.com/shubham151/OllamaChat.git
+cd OllamaChat
 ```
 
 ### 2. Install dependencies
