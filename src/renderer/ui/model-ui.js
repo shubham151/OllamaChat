@@ -22,7 +22,6 @@ export default function initModelUI() {
       li.addEventListener("click", () => {
         selectedModelSpan.textContent = model;
         dropdownMenu.classList.add("hidden");
-        // update hidden select for compatibility
         document.getElementById("model-select").value = model;
       });
       dropdownMenu.appendChild(li);
