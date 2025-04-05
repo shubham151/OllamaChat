@@ -25,6 +25,13 @@ export default function initChatUI() {
     });
   });
 
+  chatInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      sendBtn.click();
+    }
+  });
+
   function appendMessage(message, type = "bot") {
     const messageElem = createMessage(message, type);
     chatLog.appendChild(messageElem);
