@@ -179,3 +179,57 @@
         transform: rotate(360deg);
     }
 }
+
+/* Updated Input Container */
+#chat-input-container {
+    display: flex;
+    padding: 12px 20px;
+    background-color: #ffffff;
+    border-top: 1px solid #ddd;
+    align-items: center;
+}
+
+/* Input Field Styling */
+#chat-input {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 16px;
+    background-color: #f8f8f8;
+    border: none;
+    border-radius: 24px;
+    outline: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease;
+}
+
+#chat-input:focus {
+    box-shadow: 0 0 0 2px rgba(0, 120, 215, 0.3);
+}
+
+/* Send Button Styling */
+#send-btn {
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: #0078d7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#send-btn:hover {
+    background-color: #005ea6;
+}
+
+#send-btn:active {
+    transform: scale(0.95);
+}
+
+/* Ensure the SVG icon fills the button correctly */
+#send-btn svg {
+    display: block;
+}
