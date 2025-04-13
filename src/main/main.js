@@ -15,6 +15,7 @@ function createMainWindow() {
       nodeIntegration: false,
     },
   });
+  mainWindow.setMenuBarVisibility(false);
 
   mainWindow.loadFile(path.join(__dirname, "../renderer/index.html"));
 }

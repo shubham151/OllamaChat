@@ -1,46 +1,42 @@
 #settings-panel {
     padding: 20px;
-    border-top: 1px solid #ccc;
-    background: #fefefe;
-}
-
-.dark-mode #settings-panel {
-    background: #2e2e2e;
-    color: white;
-}
-
-#settings-panel h2 {
-    margin-bottom: 20px;
-}
-
-.setting {
-    margin-bottom: 15px;
+    background-color: var(--card-bg);
+    border-left: 1px solid var(--border);
+    height: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    width: 300px;
 }
 
-.setting label {
-    width: 120px;
+.settings-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-#ollama-host {
-    flex: 1;
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+.settings-section label {
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
 }
 
-#save-btn {
-    padding: 10px 20px;
-    background-color: #19c37d;
-    border: none;
-    border-radius: 6px;
-    color: white;
-    font-size: 15px;
+.settings-section input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+}
+
+.toggle-button {
+    padding: 10px 16px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background-color: var(--background);
+    color: var(--text);
     cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
-#save-btn:hover {
-    background-color: #0fa36b;
+.toggle-button:hover {
+    background-color: var(--border);
 }

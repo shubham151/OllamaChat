@@ -1,34 +1,61 @@
 #chat-input-container {
     display: flex;
-    padding: 12px;
-    background: #f9f9f9;
-    border-top: 1px solid #ccc;
-}
-
-.dark-mode #chat-input-container {
-    background: #202123;
-    border-color: #333;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border);
+    gap: 10px;
 }
 
 #chat-input {
     flex: 1;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+    font: inherit;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: var(--background);
+    color: var(--text);
+    resize: none;
+    height: 40px;
+    transition: border-color 0.2s ease;
+}
+
+#chat-input:focus {
+    border-color: var(--accent);
+    outline: none;
 }
 
 #send-btn {
-    padding: 10px 16px;
-    font-size: 15px;
-    margin-left: 10px;
-    border-radius: 8px;
-    border: none;
-    background-color: #19c37d;
+    background-color: var(--accent);
     color: white;
+    border: none;
+    border-radius: var(--radius);
+    padding: 10px 16px;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+    transition: background-color 0.2s ease;
+}
+
+#send-btn {
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    color: white;
+    font-size: 18px;
 }
 
 #send-btn:hover {
-    background-color: #0fa36b;
+    background-color: #005ea6;
+}
+
+#send-btn:active {
+    transform: scale(0.95);
 }

@@ -1,83 +1,79 @@
 header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
+    background-color: var(--card-bg);
     padding: 12px 20px;
-    background: #202123;
-    color: white;
-}
-
-#header-left span {
-    font-size: 16px;
-    font-weight: 500;
-    color: #d1d5db;
-}
-
-#header-left strong {
-    color: white;
-}
-
-#header-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-#settings-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: white;
-    padding: 6px;
-    border-radius: 50%;
-}
-
-#settings-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    z-index: 10;
 }
 
 .dropdown {
     position: relative;
 }
 
-.dropdown-toggle {
-    background: transparent;
-    color: white;
-    font-size: 15px;
-    border: none;
-    cursor: pointer;
-    padding: 6px 10px;
-    border-radius: 6px;
-}
-
-.dropdown-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
 .dropdown-menu {
     position: absolute;
-    top: 100%;
+    bottom: 100%;
     left: 0;
-    background: #2a2b32;
-    border: 1px solid #444;
-    border-radius: 6px;
+    margin-bottom: 8px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     padding: 6px 0;
-    list-style: none;
-    margin: 5px 0 0 0;
-    width: 160px;
-    z-index: 100;
+    max-height: 200px;
+    overflow-y: auto;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 999;
+    min-width: 180px;
 }
 
+.dropdown-menu.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+
 .dropdown-menu li {
-    padding: 8px 12px;
-    color: white;
+    list-style: none;
+    padding: 10px 16px;
+    font-size: 15px;
+    color: var(--text);
     cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s ease;
 }
 
 .dropdown-menu li:hover {
-    background-color: #3e3f47;
+    background-color: var(--border);
 }
 
-.hidden {
-    display: none;
+
+/* Dark mode support */
+.dark-mode .dropdown-toggle {
+    background-color: var(--card-bg);
+    color: var(--text);
+}
+
+.dark-mode .dropdown-menu {
+    background-color: var(--card-bg);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+.dark-mode .dropdown-menu li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+#header-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }

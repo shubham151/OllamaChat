@@ -21,8 +21,9 @@ export default function initModelUI() {
       li.textContent = model;
       li.addEventListener("click", () => {
         selectedModelSpan.textContent = model;
-        dropdownMenu.classList.add("hidden");
-        document.getElementById("model-select").value = model;
+        dropdownMenu.classList.remove("show");
+        // document.getElementById("model-select").value = model;
+        document.getElementById("model-select").value = models[0];
       });
       dropdownMenu.appendChild(li);
     });
@@ -31,13 +32,14 @@ export default function initModelUI() {
     document.getElementById("model-select").value = models[0];
   });
 
-  dropdownBtn.addEventListener("click", () => {
-    dropdownMenu.classList.toggle("hidden");
+  dropdownBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdownMenu.classList.toggle("show");
   });
 
   document.addEventListener("click", (e) => {
-    if (!dropdownBtn.contains(e.target)) {
-      dropdownMenu.classList.add("hidden");
+    if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+      dropdownMenu.classList.remove("show");
     }
   });
 }
