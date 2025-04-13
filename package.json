@@ -11,7 +11,8 @@
   "license": "ISC",
   "description": "A chat application using Electron and Ollama",
   "devDependencies": {
-    "electron": "^35.1.2"
+    "electron": "^35.1.2",
+    "electron-builder": "^26.0.12"
   },
   "build": {
     "appId": "com.yourdomain.ollamachat",
@@ -20,7 +21,17 @@
       "src/**/*"
     ],
     "directories": {
-      "buildResources": "assets"
+      "buildResources": "assets",
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
     }
   },
   "dependencies": {
